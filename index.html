@@ -216,7 +216,7 @@
     .multiplication-grid {
       margin-top: 1rem;
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 0.45rem;
     }
 
@@ -225,12 +225,42 @@
       border-radius: 0.55rem;
       border: 1px solid #353151;
       background: linear-gradient(155deg, rgba(159,107,255,0.3), rgba(73,162,255,0.15) 55%, rgba(82,211,154,0.2));
+      overflow: hidden;
+      position: relative;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-label {
+      position: absolute;
+      left: 0.35rem;
+      right: 0.35rem;
+      bottom: 0.35rem;
+      background: rgba(8, 8, 13, 0.72);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 0.35rem;
+      color: #ebe5ff;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0.15rem 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .thumb.pending {
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ebe5ff;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
+      text-align: center;
+      padding: 0.4rem;
     }
 
     .metrics {
@@ -404,21 +434,20 @@
 
     <section aria-labelledby="multiplication">
       <h2 id="multiplication">Show Multiplication</h2>
-      <p class="intro">The multiplication proof is now focused and explicit: one prompt expands into five strategic output types, each with a job in the funnel.</p>
+      <p class="intro">The multiplication proof now runs as a strict 4-thumbnail set. Your first uploaded image is already inserted, and the next three slots are held for the next uploads.</p>
       <div class="metrics">
         <div class="metric-card"><strong>1</strong>Seed Prompt</div>
         <div class="metric-card"><strong>4</strong>Controlled Variations</div>
-        <div class="metric-card"><strong>5</strong>Core Thumbnails</div>
+        <div class="metric-card"><strong>4</strong>Core Thumbnails</div>
         <div class="metric-card"><strong>1→100</strong>Asset Potential</div>
       </div>
-      <div class="multiplication-grid" aria-label="Five thumbnail outputs mapped to use-cases">
-        <div class="thumb">Poster</div>
-        <div class="thumb">Social</div>
-        <div class="thumb">Pinterest</div>
-        <div class="thumb">Ad Creative</div>
-        <div class="thumb">Product Cover</div>
+      <div class="multiplication-grid" aria-label="Four thumbnail outputs mapped to use-cases">
+        <div class="thumb pending">Upload 1<br />Queued in this slot</div>
+        <div class="thumb pending">Upload 2<br />Awaiting Image</div>
+        <div class="thumb pending">Upload 3<br />Awaiting Image</div>
+        <div class="thumb pending">Upload 4<br />Awaiting Image</div>
       </div>
-      <p class="intro"><strong>Interpretation:</strong> this is not random variation—this is output planning. Each thumbnail is a distribution-ready format that can be expanded into campaigns, listings, and monetized content batches.</p>
+      <p class="intro"><strong>Interpretation:</strong> this is not random variation—this is output planning with controlled slots. As each new image is uploaded, it replaces the next placeholder and keeps the 4-thumbnail structure fixed.</p>
     </section>
 
     <section aria-labelledby="revenue-logic">
