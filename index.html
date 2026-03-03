@@ -191,6 +191,86 @@
       color: var(--accent);
     }
 
+
+
+    .system-diagram {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--panel);
+      padding: 1rem;
+      text-align: center;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .system-diagram .step {
+      padding: 0.35rem 0;
+    }
+
+    .system-diagram .arrow {
+      color: var(--purple);
+      opacity: 0.9;
+    }
+
+    .multiplication-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.45rem;
+    }
+
+    .thumb {
+      aspect-ratio: 1;
+      border-radius: 0.55rem;
+      border: 1px solid #353151;
+      background: linear-gradient(155deg, rgba(159,107,255,0.3), rgba(73,162,255,0.15) 55%, rgba(82,211,154,0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ebe5ff;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+    }
+
+    .metric-card {
+      border: 1px solid var(--line);
+      border-radius: 0.7rem;
+      background: rgba(255,255,255,0.02);
+      padding: 0.65rem 0.75rem;
+      text-align: center;
+    }
+
+    .metric-card strong {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+
+    .revenue-chain {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--panel);
+      padding: 1rem;
+    }
+
+    .revenue-chain ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    @media (max-width: 700px) {
+      .multiplication-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
     .map {
       margin-top: 1rem;
       border: 1px solid var(--line);
@@ -212,8 +292,8 @@
 <body>
   <header class="hero container">
     <span class="tagline">Entry Layer · Clean · Controlled</span>
-    <h1>Nuvic Creative System<br />From Seed Prompt → Commercial Output.</h1>
-    <p class="subtitle">This is not a prompt pack. It’s a controlled creative engine.</p>
+    <h1>Turn One Prompt Into 100 Monetizable Assets</h1>
+    <p class="subtitle">Nuvic Creative System: structured prompt operations for commercial output at scale.</p>
     <a class="cta" href="#seed-demo">Start With the Seed</a>
   </header>
 
@@ -297,6 +377,63 @@
         </div>
       </div>
       <p class="intro">One seed prompt → multiple monetizable outputs connected to the 30 Curated Prompts PDF, Commercial Consistency &amp; Reuse Guide, and Output Optimization Guide.</p>
+    </section>
+
+    <section aria-labelledby="diagram">
+      <h2 id="diagram">System Diagram</h2>
+      <p class="intro">He must see structure. This is the operational chain from idea to monetization.</p>
+      <div class="system-diagram" role="img" aria-label="Input to revenue stream system flow">
+        <div class="step">INPUT</div>
+        <div class="arrow">↓</div>
+        <div class="step">PROMPT FRAMEWORK</div>
+        <div class="arrow">↓</div>
+        <div class="step">OUTPUT GENERATION</div>
+        <div class="arrow">↓</div>
+        <div class="step">BATCH VARIANTS</div>
+        <div class="arrow">↓</div>
+        <div class="step">UPLOAD AUTOMATION</div>
+        <div class="arrow">↓</div>
+        <div class="step">REVENUE STREAM</div>
+      </div>
+    </section>
+
+    <section aria-labelledby="multiplication">
+      <h2 id="multiplication">Show Multiplication</h2>
+      <p class="intro">Not one polished mockup — volume proves system power.</p>
+      <div class="metrics">
+        <div class="metric-card"><strong>1</strong>Prompt</div>
+        <div class="metric-card"><strong>12</strong>Variations</div>
+        <div class="metric-card"><strong>48</strong>Thumbnails</div>
+        <div class="metric-card"><strong>120</strong>Generated Outputs</div>
+      </div>
+      <div class="multiplication-grid" aria-label="48 thumbnail style representation grid">
+        <div class="thumb">v01</div><div class="thumb">v02</div><div class="thumb">v03</div><div class="thumb">v04</div>
+        <div class="thumb">v05</div><div class="thumb">v06</div><div class="thumb">v07</div><div class="thumb">v08</div>
+        <div class="thumb">v09</div><div class="thumb">v10</div><div class="thumb">v11</div><div class="thumb">v12</div>
+        <div class="thumb">v13</div><div class="thumb">v14</div><div class="thumb">v15</div><div class="thumb">v16</div>
+        <div class="thumb">v17</div><div class="thumb">v18</div><div class="thumb">v19</div><div class="thumb">v20</div>
+        <div class="thumb">v21</div><div class="thumb">v22</div><div class="thumb">v23</div><div class="thumb">v24</div>
+        <div class="thumb">v25</div><div class="thumb">v26</div><div class="thumb">v27</div><div class="thumb">v28</div>
+        <div class="thumb">v29</div><div class="thumb">v30</div><div class="thumb">v31</div><div class="thumb">v32</div>
+        <div class="thumb">v33</div><div class="thumb">v34</div><div class="thumb">v35</div><div class="thumb">v36</div>
+        <div class="thumb">v37</div><div class="thumb">v38</div><div class="thumb">v39</div><div class="thumb">v40</div>
+        <div class="thumb">v41</div><div class="thumb">v42</div><div class="thumb">v43</div><div class="thumb">v44</div>
+        <div class="thumb">v45</div><div class="thumb">v46</div><div class="thumb">v47</div><div class="thumb">v48</div>
+      </div>
+      <p class="intro">This systemized volume alone can raise saves by 30–40% when presented with consistency and repetition.</p>
+    </section>
+
+    <section aria-labelledby="revenue-logic">
+      <h2 id="revenue-logic">Revenue Anchoring</h2>
+      <div class="revenue-chain">
+        <p><strong>Chain Logic:</strong> 1 asset → 10 Pinterest pins → 3 traffic funnels → affiliate / digital product revenue.</p>
+        <ul>
+          <li><strong>Asset Layer:</strong> Generate one high-quality visual asset.</li>
+          <li><strong>Distribution Layer:</strong> Expand to ten platform-fit pins.</li>
+          <li><strong>Funnel Layer:</strong> Route engagement into three targeted traffic funnels.</li>
+          <li><strong>Monetization Layer:</strong> Convert traffic into affiliate commissions or digital product sales.</li>
+        </ul>
+      </div>
     </section>
 
     <section aria-labelledby="case-study">
