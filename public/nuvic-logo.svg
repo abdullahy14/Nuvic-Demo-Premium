@@ -1,0 +1,9 @@
+<svg width="422" height="108" viewBox="0 0 422 108" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nuvic logo">
+  <rect width="422" height="108" fill="black"/>
+  <path d="M14 92V16L93 100V16H111V92L32 8V92H14Z" fill="#E5E7EB"/>
+  <path d="M131 63V31H149V62C149 73 157 80 167 80C178 80 186 73 186 62V31H204V92H187V84C182 90 173 94 162 94C144 94 131 82 131 63Z" fill="#E5E7EB"/>
+  <path d="M210 31H230L259 81L288 31H308L259 108L210 31Z" fill="#E5E7EB"/>
+  <circle cx="321" cy="16" r="8" fill="#E5E7EB"/>
+  <rect x="312" y="31" width="18" height="61" fill="#E5E7EB"/>
+  <path d="M339 62C339 44 354 29 373 29C390 29 404 40 408 57L392 63C390 52 383 45 373 45C362 45 355 53 355 62C355 71 362 79 373 79C382 79 389 73 392 62L408 67C403 84 389 95 373 95C354 95 339 80 339 62Z" fill="#E5E7EB"/>
+</svg>

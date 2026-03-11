@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/data/products";
 
@@ -5,6 +6,7 @@ export default function LandingPage() {
   return (
     <main className="space-y-8">
       <section className="rounded-3xl glass p-10 text-center">
+        <Image src="/nuvic-logo.svg" alt="Nuvic" width={220} height={56} className="mx-auto mb-6 h-12 w-auto" priority />
         <p className="mb-3 text-xs uppercase tracking-[0.3em] text-mint">Premium Creative AI Ecosystem</p>
         <h1 className="mx-auto max-w-3xl text-5xl font-bold">Turn AI tools into a repeatable creative machine.</h1>
         <p className="mx-auto mt-4 max-w-2xl text-slate-300">Nuvic Demo Hub blends interactive prompts, asset previews, and a product marketplace with intelligent upgrade paths.</p>
