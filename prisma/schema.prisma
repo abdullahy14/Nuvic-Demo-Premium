@@ -1,0 +1,202 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum AccessLevel {
+  FREE
+  PARTIAL
+  PREMIUM
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  name      String?
+  role      Role       @default(VIEWER)
+  favorites Favorite[]
+  reviews   Review[]
+  comments  Comment[]
+  views     View[]
+  events    AnalyticsEvent[]
+  createdAt DateTime   @default(now())
+}
+
+model PromptCategory {
+  id      String   @id @default(cuid())
+  name    String   @unique
+  prompts Prompt[]
+}
+
+model Prompt {
+  id            String   @id @default(cuid())
+  title         String
+  description   String
+  promptText    String
+  previewText   String
+  lockPercentage Int
+  access        AccessLevel @default(FREE)
+  published     Boolean @default(true)
+  popularity    Int @default(0)
+  tags          String[]
+  categoryId    String
+  category      PromptCategory @relation(fields: [categoryId], references: [id])
+  linkedProducts Product[]
+  createdAt     DateTime @default(now())
+}
+
+model AssetCategory {
+  id     String @id @default(cuid())
+  name   String @unique
+  assets Asset[]
+}
+
+model Asset {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  access      AccessLevel @default(FREE)
+  previewUrl  String
+  downloadUrl String?
+  tags        String[]
+  categoryId  String
+  category    AssetCategory @relation(fields: [categoryId], references: [id])
+  products    Product[]
+  createdAt   DateTime @default(now())
+}
+
+model ProductCategory {
+  id       String @id @default(cuid())
+  name     String @unique
+  products Product[]
+}
+
+model Product {
+  id             String @id @default(cuid())
+  slug           String @unique
+  title          String
+  shortDescription String
+  longDescription String
+  price          Float
+  comparePrice   Float
+  rating         Float @default(0)
+  reviewCount    Int @default(0)
+  featured       Boolean @default(false)
+  bestseller     Boolean @default(false)
+  recommended    Boolean @default(false)
+  includedInSystem Boolean @default(false)
+  tags           String[]
+  images         String[]
+  categoryId     String
+  category       ProductCategory @relation(fields: [categoryId], references: [id])
+  prompts        Prompt[]
+  assets         Asset[]
+  reviews        Review[]
+  bundles        BundleProduct[]
+}
+
+model Bundle {
+  id          String @id @default(cuid())
+  name        String
+  description String
+  offerPrice  Float
+  products    BundleProduct[]
+  offers      Offer[]
+}
+
+model BundleProduct {
+  bundleId  String
+  productId String
+  bundle    Bundle @relation(fields: [bundleId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+  @@id([bundleId, productId])
+}
+
+model Review {
+  id        String @id @default(cuid())
+  rating    Int
+  title     String
+  body      String
+  verified  Boolean @default(false)
+  approved  Boolean @default(false)
+  helpful   Int @default(0)
+  userId    String
+  productId String
+  user      User @relation(fields: [userId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+  comments  Comment[]
+}
+
+model Comment {
+  id        String @id @default(cuid())
+  body      String
+  hidden    Boolean @default(false)
+  userId    String
+  reviewId  String
+  user      User @relation(fields: [userId], references: [id])
+  review    Review @relation(fields: [reviewId], references: [id])
+}
+
+model Favorite {
+  id        String @id @default(cuid())
+  userId    String
+  targetType String
+  targetId  String
+  user      User @relation(fields: [userId], references: [id])
+}
+
+model View {
+  id        String @id @default(cuid())
+  userId    String
+  targetType String
+  targetId  String
+  createdAt DateTime @default(now())
+  user      User @relation(fields: [userId], references: [id])
+}
+
+model RecommendationRule {
+  id          String @id @default(cuid())
+  name        String
+  condition   String
+  action      String
+  weight      Int @default(10)
+  boost       Int @default(0)
+  active      Boolean @default(true)
+}
+
+model PageContent {
+  id        String @id @default(cuid())
+  pageKey   String @unique
+  content   Json
+  updatedAt DateTime @updatedAt
+}
+
+model Offer {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  discountPct Float
+  ctaText     String
+  active      Boolean @default(true)
+  bundleId    String?
+  bundle      Bundle? @relation(fields: [bundleId], references: [id])
+}
+
+model AnalyticsEvent {
+  id        String @id @default(cuid())
+  userId    String?
+  eventType String
+  payload   Json
+  createdAt DateTime @default(now())
+  user      User? @relation(fields: [userId], references: [id])
+}
